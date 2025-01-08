@@ -1,14 +1,7 @@
 const container = document.querySelector(".container");
+const choosesize = document.querySelector(".sizebutton");
 
-function makeGrid (size) {
-    for (i = 0; i < size; i++) {
-        for (j = 0; j < size; j++) {
-            const row1 = document.createElement("div");
-            container.appendChild(row1);
-            row1.textContent = '${i},${j}';
-        }
-    }
-}
+
 
 //really just creating the divs in HTML and flexing them
 // create a container to hold all
@@ -32,6 +25,7 @@ function makeGrid (size) {
 // };
 
 function makeRows (size) {
+    let screen = document.querySelector(".screen");
     for (i=0; i < size; i++) {
         const column = document.createElement("div");
         column.classList.add("gridcolumn");
@@ -40,12 +34,42 @@ function makeRows (size) {
             row.classList.add("gridrow");
             row.style.border = "1px solid black";
             column.appendChild(row);
+            
+            row.addEventListener('mouseenter', () => {
+                row.style.backgroundColor = "grey";
+            });
+
         }
-    container.appendChild(column);
+    screen.appendChild(column);
 }
 };
 
+makeRows(16);
+
+choosesize.addEventListener("click", () => {
+    let squaresides = prompt("How many squares per side (limit 100)?")
+    
+    if (squaresides >= 100) {
+        makeRows(100);        
+    } else if (squaresides <= 100) {
+        makeRows(squaresides);
+    }
+})
+
+
+
+
+
 // event listener for when mouse enters each gridrow div (MOUSE HOVER)
 
-makeRows(16);
+// row.addEventListener("hover", ) {
+// turns black
+// } ???
+
+// CREATE INPUT (https://www.w3schools.com/html/html_forms.asp) for people to add "size" variable and pass that through
+// makerows function. Check out RPS for example
+
+// scissors.addEventListener("click", () => {
+//     playRound("scissors", "");
+//     });
 
