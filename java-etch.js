@@ -1,26 +1,8 @@
 const container = document.querySelector(".container");
 const choosesize = document.querySelector(".sizebutton");
-const body = document.querySelector("body");
-
-
-
-//really just creating the divs in HTML and flexing them
-// create a container to hold all
-// create 16 divs within container which are columns, flex the container
-// within each column, create 16 divs, flex each column 
-
-//TRY REWRITING
-//CONTAINER - append n divs SIZE IT (FLEX DISPLAY)
-//append n rows to the divs SIZE IT
-
-// <container>
-// <columns> FLEXING THESE
-//  <rows> these are below the columns so just go down
-
 
 function makeRows (size) {
-
-    container.innerHTML = "";
+    removeGrid();
     
     for (i=0; i < size; i++) {
 
@@ -46,13 +28,24 @@ function makeRows (size) {
 
         }
     // appends everything to the container div once both loops are done
+    
     container.appendChild(column);
 }
 };
 
 makeRows(16);
 
+//add a function to remove grid
+
+function removeGrid () {
+    //when container has a first child --> remove that child
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    } 
+}
+
 function newGrid() {
+    // prompts for squares and then directs to create a newgrid
     let squaresides = prompt("How many squares per side (limit 100)?")
     
     if (squaresides > 100) {
@@ -62,18 +55,7 @@ function newGrid() {
     } 
 }
 
-// choosesize.addEventListener("click", () => {
-//     // delete the old container (ABOVE) and start a fresh one
-    
-    
-//     let squaresides = prompt("How many squares per side (limit 100)?")
-    
-//     if (squaresides > 100) {
-//         alert("Number cannot be higher than 100")       
-//     } else if (squaresides <= 100) {
-//         makeRows(squaresides);
-//     }
-// })
+//on click, run new grid
 
 choosesize.addEventListener("click", newGrid);
 
