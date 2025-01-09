@@ -34,5 +34,6 @@ body {
 
 .gridrow {
    background-color: white; 
+   border-collapse: collapse;
 }
 
