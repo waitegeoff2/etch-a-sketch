@@ -1,6 +1,8 @@
 const container = document.querySelector(".container");
 const choosesize = document.querySelector(".sizebutton");
 
+//create a function to make the grid
+
 function makeRows (size) {
     removeGrid();
     
@@ -23,7 +25,7 @@ function makeRows (size) {
             
             // for each row div, adds the hover event
             row.addEventListener('mouseenter', () => {
-                row.style.backgroundColor = "grey";
+                row.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
             });
 
         }
