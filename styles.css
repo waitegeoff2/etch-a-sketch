@@ -32,12 +32,6 @@ body {
     padding: 20px;
 }
 
-.gridcolumn {
-    
-}
-
-/* gridrow going to be unnecessary */
-
 .gridrow {
    background-color: white; 
 }

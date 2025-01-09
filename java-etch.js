@@ -19,7 +19,8 @@ function makeRows (size) {
             row.style.border = "1px solid black";
             column.appendChild(row);
 
-            //set the size of each div
+            //set the size of each box so that max size of container is 500px
+            
             row.style.height = (500/size) + "px";
             row.style.width = (500/size) + "px";
             
